@@ -366,7 +366,8 @@ python test_advanced_features_simple.py
 
 ## 🙏 致谢
 
-感谢以下开源项目的支持：
+感谢以下开源项目和工具的支持：
+- [Cursor](https://cursor.com/) - AI驱动的代码编辑器，提供卓越的开发体验 🤖
 - [Qiskit](https://qiskit.org/) - 量子计算框架
 - [Plotly](https://plotly.com/) - 交互式可视化
 - [Optuna](https://optuna.org/) - 超参数优化
@@ -394,7 +395,7 @@ python test_advanced_features_simple.py
 *🆕 v4.1.0 重大更新 (2025.08.12): 修复关键问题，优化用户体验，系统更稳定！*
 
 [![Built with ❤️](https://img.shields.io/badge/Built%20with-❤️-red.svg)](https://github.com/pe0ny9-a/AI-Lottery-Predictor)
-[![Powered by AI](https://img.shields.io/badge/Powered%20by-Pe0ny9-blue.svg)](https://github.com/pe0ny9-a/AI-Lottery-Predictor)
+[![Powered by Pe0ny9](https://img.shields.io/badge/Powered%20by-Pe0ny9-blue.svg)](https://github.com/pe0ny9-a/AI-Lottery-Predictor)
 [![Latest Release](https://img.shields.io/badge/Latest-v4.1.0-orange.svg)](https://github.com/Pe0ny9-A/AI-Lottery-Predictor/releases/tag/v4.1.0)
 
 </div>
