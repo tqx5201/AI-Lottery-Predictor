@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>开发指南 - AI彩票预测系统 V4.0</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-color: #6366f1;
+            --secondary-color: #8b5cf6;
+        }
+        
+        .sidebar {
+            position: sticky;
+            top: 100px;
+            height: calc(100vh - 120px);
+            overflow-y: auto;
+        }
+        
+        .content-section {
+            padding: 80px 0 40px;
+        }
+        
+        .code-block {
+            background: #1a1a1a;
+            color: #f8f8f2;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            overflow-x: auto;
+        }
+        
+        .architecture-diagram {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            border: 2px solid #e9ecef;
+            margin: 20px 0;
+        }
+        
+        .module-card {
+            border: 1px solid #e5e7eb;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            background: white;
+        }
+        
+        .tech-stack-item {
+            display: inline-block;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            margin: 5px;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fas fa-brain"></i> AI彩票预测系统 V4.0
+            </a>
+            <div class="navbar-nav ms-auto">
+                <a class="nav-link" href="index.html">返回首页</a>
+                <a class="nav-link" href="user-guide.html">用户指南</a>
+                <a class="nav-link" href="api-docs.html">API文档</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid content-section">
+        <div class="row">
+            <!-- 侧边栏 -->
+            <div class="col-lg-3">
+                <div class="sidebar">
+                    <div class="card">
+                        <div class="card-header bg-primary text-white">
+                            <h6 class="mb-0"><i class="fas fa-tools"></i> 开发目录</h6>
+                        </div>
+                        <div class="card-body p-0">
+                            <nav class="nav nav-pills flex-column">
+                                <a class="nav-link" href="#overview">开发概述</a>
+                                <a class="nav-link" href="#architecture">系统架构</a>
+                                <a class="nav-link" href="#setup">开发环境</a>
+                                <a class="nav-link" href="#modules">核心模块</a>
+                                <a class="nav-link" href="#streaming">流处理开发</a>
+                                <a class="nav-link" href="#visualization">可视化开发</a>
+                                <a class="nav-link" href="#quantum">量子算法开发</a>
+                                <a class="nav-link" href="#testing">测试指南</a>
+                                <a class="nav-link" href="#deployment">部署指南</a>
+                                <a class="nav-link" href="#contribution">贡献指南</a>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 主内容 -->
+            <div class="col-lg-9">
+                <div class="card shadow">
+                    <div class="card-body p-5">
+                        <h1 class="mb-4">🛠️ 开发指南</h1>
+                        <p class="lead">欢迎参与AI彩票预测系统V4.0的开发！本指南将帮助您了解系统架构、开发环境搭建和贡献流程。</p>
+
+                        <!-- 开发概述 -->
+                        <section id="overview" class="mb-5">
+                            <h2><i class="fas fa-info-circle text-primary"></i> 开发概述</h2>
+                            
+                            <h4>项目结构</h4>
+                            <div class="code-block">
+                                <pre><code>AI-Lottery-Predictor/
+├── src/                    # 源代码
+│   ├── streaming/          # 🌊 实时流处理
+│   ├── visualization/      # 🎨 可视化引擎
+│   ├── optimization/       # 🧠 智能调优
+│   ├── quantum/           # ⚛️ 量子计算
+│   ├── ai_assistant/      # 🤖 AI助手
+│   ├── ml/               # 🎯 机器学习
+│   ├── core/             # 🏗️ 核心功能
+│   ├── utils/            # 🔧 工具函数
+│   └── gui/              # 🎨 用户界面
+├── tests/                 # 测试文件
+├── docs/                  # 文档
+├── examples/              # 示例代码
+├── scripts/               # 构建脚本
+├── requirements.txt       # 依赖清单
+└── main.py               # 主启动文件</code></pre>
+                            </div>
+
+                            <h4>技术栈</h4>
+                            <div class="mb-3">
+                                <span class="tech-stack-item">Python 3.8+</span>
+                                <span class="tech-stack-item">AsyncIO</span>
+                                <span class="tech-stack-item">NumPy</span>
+                                <span class="tech-stack-item">Pandas</span>
+                                <span class="tech-stack-item">Scikit-learn</span>
+                                <span class="tech-stack-item">Plotly</span>
+                                <span class="tech-stack-item">Qiskit</span>
+                                <span class="tech-stack-item">WebSocket</span>
+                                <span class="tech-stack-item">SQLite</span>
+                            </div>
+                        </section>
+
+                        <!-- 系统架构 -->
+                        <section id="architecture" class="mb-5">
+                            <h2><i class="fas fa-sitemap text-primary"></i> 系统架构</h2>
+                            
+                            <div class="architecture-diagram">
+                                <pre><code>┌─────────────────────────────────────────────────────────────┐
+│                        用户交互层                            │
+│  ┌─────────────┐ ┌─────────────┐ ┌─────────────┐          │
+│  │  🤖 AI助手  │ │ 🎨 3D可视化  │ │ ⚙️ 配置界面  │          │
+│  └─────────────┘ └─────────────┘ └─────────────┘          │
+├─────────────────────────────────────────────────────────────┤
+│                        智能处理层                            │
+│  ┌─────────────┐ ┌─────────────┐ ┌─────────────┐          │
+│  │ 🌊 实时流处理 │ │ 🧠 智能调优  │ │ ⚛️ 量子计算  │          │
+│  └─────────────┘ └─────────────┘ └─────────────┘          │
+├─────────────────────────────────────────────────────────────┤
+│                        核心引擎层                            │
+│  ┌─────────────┐ ┌─────────────┐ ┌─────────────┐          │
+│  │ 🎯 预测引擎  │ │ 📊 分析引擎  │ │ 📈 可视化引擎 │          │
+│  └─────────────┘ └─────────────┘ └─────────────┘          │
+├─────────────────────────────────────────────────────────────┤
+│                        基础服务层                            │
+│  ┌─────────────┐ ┌─────────────┐ ┌─────────────┐          │
+│  │ 🗄️ 数据库   │ │ 🧠 内存优化  │ │ 🛡️ 错误处理  │          │
+│  └─────────────┘ └─────────────┘ └─────────────┘          │
+└─────────────────────────────────────────────────────────────┘</code></pre>
+                            </div>
+
+                            <h4>架构设计原则</h4>
+                            <ul>
+                                <li><strong>分层架构：</strong> 清晰的层次结构，职责分离</li>
+                                <li><strong>模块化设计：</strong> 高内聚、低耦合的模块设计</li>
+                                <li><strong>异步优先：</strong> 使用AsyncIO提高并发性能</li>
+                                <li><strong>可扩展性：</strong> 支持新功能和算法的快速集成</li>
+                                <li><strong>容错性：</strong> 完善的错误处理和降级机制</li>
+                            </ul>
+                        </section>
+
+                        <!-- 开发环境 -->
+                        <section id="setup" class="mb-5">
+                            <h2><i class="fas fa-laptop-code text-primary"></i> 开发环境搭建</h2>
+                            
+                            <h4>1. 基础环境</h4>
+                            <div class="code-block">
+                                <pre><code># 克隆项目
+git clone https://github.com/pe0ny9-a/AI-Lottery-Predictor.git
+cd AI-Lottery-Predictor
+
+# 创建虚拟环境
+python -m venv venv
+source venv/bin/activate  # Linux/Mac
+# 或
+venv\Scripts\activate  # Windows
+
+# 安装开发依赖
+pip install -r requirements.txt
+pip install -r requirements-dev.txt</code></pre>
+                            </div>
+
+                            <h4>2. 开发工具配置</h4>
+                            <div class="code-block">
+                                <pre><code># 安装代码格式化工具
+pip install black flake8 isort mypy
+
+# 安装测试工具
+pip install pytest pytest-asyncio pytest-cov
+
+# 安装预提交钩子
+pip install pre-commit
+pre-commit install</code></pre>
+                            </div>
+
+                            <h4>3. IDE配置 (VS Code)</h4>
+                            <div class="code-block">
+                                <pre><code># .vscode/settings.json
+{
+    "python.defaultInterpreterPath": "./venv/bin/python",
+    "python.linting.enabled": true,
+    "python.linting.flake8Enabled": true,
+    "python.formatting.provider": "black",
+    "python.sortImports.args": ["--profile", "black"],
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+        "source.organizeImports": true
+    }
+}</code></pre>
+                            </div>
+
+                            <h4>4. 环境变量配置</h4>
+                            <div class="code-block">
+                                <pre><code># .env.development
+DEBUG=true
+LOG_LEVEL=DEBUG
+CACHE_ENABLED=true
+QUANTUM_ENABLED=true
+DATABASE_PATH=data/dev.db
+WEBSOCKET_PORT=8765</code></pre>
+                            </div>
+                        </section>
+
+                        <!-- 核心模块 -->
+                        <section id="modules" class="mb-5">
+                            <h2><i class="fas fa-cubes text-primary"></i> 核心模块详解</h2>
+                            
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="module-card">
+                                        <h5><i class="fas fa-stream"></i> 实时流处理 (streaming/)</h5>
+                                        <p>高性能事件驱动的实时数据处理系统</p>
+                                        <ul>
+                                            <li><code>realtime_processor.py</code> - 核心处理引擎</li>
+                                            <li><code>stream_buffer.py</code> - 数据缓冲管理</li>
+                                            <li><code>event_router.py</code> - 事件路由分发</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="module-card">
+                                        <h5><i class="fas fa-chart-line"></i> 可视化引擎 (visualization/)</h5>
+                                        <p>3D交互式图表和动画可视化系统</p>
+                                        <ul>
+                                            <li><code>enhanced_charts.py</code> - 图表引擎</li>
+                                            <li><code>chart_types.py</code> - 图表类型定义</li>
+                                            <li><code>animation_engine.py</code> - 动画引擎</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="module-card">
+                                        <h5><i class="fas fa-brain"></i> 智能调优 (optimization/)</h5>
+                                        <p>自动化超参数优化和模型选择系统</p>
+                                        <ul>
+                                            <li><code>intelligent_tuner.py</code> - 调优引擎</li>
+                                            <li><code>optimizers.py</code> - 优化算法集合</li>
+                                            <li><code>parameter_space.py</code> - 参数空间定义</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="module-card">
+                                        <h5><i class="fas fa-atom"></i> 量子计算 (quantum/)</h5>
+                                        <p>量子算法集成和量子机器学习系统</p>
+                                        <ul>
+                                            <li><code>quantum_algorithms.py</code> - 量子算法</li>
+                                            <li><code>quantum_circuits.py</code> - 量子线路</li>
+                                            <li><code>quantum_ml.py</code> - 量子机器学习</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- 流处理开发 -->
+                        <section id="streaming" class="mb-5">
+                            <h2><i class="fas fa-stream text-primary"></i> 实时流处理开发</h2>
+                            
+                            <h4>添加新的事件处理器</h4>
+                            <div class="code-block">
+                                <pre><code>from src.streaming.realtime_processor import StreamProcessor, StreamEvent
+
+class CustomEventProcessor(StreamProcessor):
+    def __init__(self, processor_id: str):
+        super().__init__(processor_id, self.process_custom_event)
+    
+    async def process_custom_event(self, event: StreamEvent) -> Any:
+        """处理自定义事件"""
+        try:
+            # 处理逻辑
+            result = self.analyze_event_data(event.data)
+            
+            # 发送处理结果
+            await self.emit_result_event(result)
+            
+            return result
+        except Exception as e:
+            logger.error(f"处理自定义事件失败: {e}")
+            raise
+
+# 注册处理器
+engine = get_stream_engine()
+engine.register_processor(
+    StreamEventType.CUSTOM_EVENT,
+    "custom_processor",
+    CustomEventProcessor("custom_processor").process_custom_event
+)</code></pre>
+                            </div>
+
+                            <h4>性能优化建议</h4>
+                            <ul>
+                                <li><strong>批处理：</strong> 合并小事件为批次处理</li>
+                                <li><strong>异步处理：</strong> 使用async/await避免阻塞</li>
+                                <li><strong>内存管理：</strong> 及时清理过期事件</li>
+                                <li><strong>背压控制：</strong> 监控队列大小，实施流量控制</li>
+                            </ul>
+                        </section>
+
+                        <!-- 可视化开发 -->
+                        <section id="visualization" class="mb-5">
+                            <h2><i class="fas fa-chart-pie text-primary"></i> 可视化开发</h2>
+                            
+                            <h4>创建自定义图表类型</h4>
+                            <div class="code-block">
+                                <pre><code>from src.visualization.enhanced_charts import InteractiveChart
+import plotly.graph_objects as go
+
+class CustomChart(InteractiveChart):
+    """自定义图表类型"""
+    
+    def create_figure(self):
+        """创建自定义图表"""
+        data = self.data.get('custom_data', [])
+        
+        fig = go.Figure()
+        
+        # 添加自定义轨迹
+        fig.add_trace(go.Scatter(
+            x=[item['x'] for item in data],
+            y=[item['y'] for item in data],
+            mode='markers+lines',
+            name='Custom Data',
+            marker=dict(
+                size=10,
+                color='rgba(255, 182, 193, .9)',
+                line=dict(width=2, color='DarkSlateGrey')
+            )
+        ))
+        
+        # 更新布局
+        fig.update_layout(
+            title=self.title,
+            xaxis_title="X轴标题",
+            yaxis_title="Y轴标题",
+            hovermode='closest'
+        )
+        
+        self.figure = fig
+        return fig
+
+# 使用自定义图表
+engine = get_visualization_engine()
+custom_chart = CustomChart("custom_chart", "自定义图表")
+custom_chart.set_data({'custom_data': your_data})
+custom_chart.create_figure()</code></pre>
+                            </div>
+
+                            <h4>主题开发</h4>
+                            <div class="code-block">
+                                <pre><code>def create_custom_theme():
+    """创建自定义主题"""
+    return {
+        'background_color': '#1a1a1a',
+        'grid_color': '#404040',
+        'text_color': '#ffffff',
+        'color_palette': ['#ff6b6b', '#4ecdc4', '#45b7d1', '#96ceb4'],
+        'font_family': 'Arial, sans-serif',
+        'font_size': 12
+    }
+
+# 注册主题
+engine.themes['custom_dark'] = create_custom_theme()
+engine.set_theme('custom_dark')</code></pre>
+                            </div>
+                        </section>
+
+                        <!-- 量子算法开发 -->
+                        <section id="quantum" class="mb-5">
+                            <h2><i class="fas fa-atom text-primary"></i> 量子算法开发</h2>
+                            
+                            <h4>实现新的量子算法</h4>
+                            <div class="code-block">
+                                <pre><code>from src.quantum.quantum_algorithms import QuantumOptimizer
+from qiskit import QuantumCircuit
+import numpy as np
+
+class CustomQuantumAlgorithm(QuantumOptimizer):
+    """自定义量子算法"""
+    
+    def optimize(self, objective_function: Callable, **kwargs) -> QuantumResult:
+        """执行自定义量子优化"""
+        start_time = time.time()
+        
+        try:
+            # 创建量子线路
+            circuit = self._create_custom_circuit()
+            
+            # 执行量子线路
+            result = self._execute_circuit(circuit)
+            
+            # 处理结果
+            optimized_result = self._process_quantum_result(result)
+            
+            execution_time = time.time() - start_time
+            
+            return QuantumResult(
+                algorithm="CustomQuantum",
+                result=optimized_result,
+                execution_time=execution_time,
+                quantum_cost=circuit.depth(),
+                classical_cost=0,
+                success_probability=0.85,
+                metadata={'custom_param': kwargs.get('custom_param')}
+            )
+            
+        except Exception as e:
+            logger.error(f"自定义量子算法执行失败: {e}")
+            return self._classical_fallback(objective_function, **kwargs)
+    
+    def _create_custom_circuit(self) -> QuantumCircuit:
+        """创建自定义量子线路"""
+        circuit = QuantumCircuit(self.num_qubits)
+        
+        # 添加量子门
+        for i in range(self.num_qubits):
+            circuit.h(i)  # Hadamard门
+        
+        # 添加纠缠
+        for i in range(self.num_qubits - 1):
+            circuit.cx(i, i + 1)  # CNOT门
+        
+        return circuit
+
+# 使用自定义量子算法
+qml = get_quantum_ml()
+custom_optimizer = CustomQuantumAlgorithm(num_qubits=6)
+result = custom_optimizer.optimize(your_objective_function)</code></pre>
+                            </div>
+
+                            <h4>量子线路优化</h4>
+                            <ul>
+                                <li><strong>门数量优化：</strong> 减少量子门数量降低噪声</li>
+                                <li><strong>深度优化：</strong> 减少线路深度提高保真度</li>
+                                <li><strong>参数优化：</strong> 使用经典优化器优化量子参数</li>
+                                <li><strong>噪声建模：</strong> 考虑量子设备的噪声特性</li>
+                            </ul>
+                        </section>
+
+                        <!-- 测试指南 -->
+                        <section id="testing" class="mb-5">
+                            <h2><i class="fas fa-vial text-primary"></i> 测试指南</h2>
+                            
+                            <h4>测试结构</h4>
+                            <div class="code-block">
+                                <pre><code>tests/
+├── unit/                  # 单元测试
+│   ├── test_streaming.py
+│   ├── test_visualization.py
+│   ├── test_quantum.py
+│   └── test_ai_assistant.py
+├── integration/           # 集成测试
+│   ├── test_system_integration.py
+│   └── test_api_integration.py
+├── performance/           # 性能测试
+│   ├── test_streaming_performance.py
+│   └── test_prediction_performance.py
+└── fixtures/              # 测试数据
+    ├── sample_data.json
+    └── mock_responses.py</code></pre>
+                            </div>
+
+                            <h4>编写测试用例</h4>
+                            <div class="code-block">
+                                <pre><code>import pytest
+import asyncio
+from src.streaming.realtime_processor import RealtimeStreamEngine
+
+class TestRealtimeStreaming:
+    """实时流处理测试"""
+    
+    @pytest.fixture
+    async def stream_engine(self):
+        """创建测试用的流处理引擎"""
+        engine = RealtimeStreamEngine(buffer_size=100, worker_count=2)
+        await engine.start()
+        yield engine
+        await engine.stop()
+    
+    @pytest.mark.asyncio
+    async def test_event_processing(self, stream_engine):
+        """测试事件处理"""
+        # 准备测试数据
+        test_event = StreamEvent(
+            event_id="test_001",
+            event_type=StreamEventType.DATA_ARRIVAL,
+            timestamp=time.time(),
+            data={"test": "data"},
+            source="test"
+        )
+        
+        # 发送事件
+        await stream_engine.emit_event(test_event)
+        
+        # 等待处理
+        await asyncio.sleep(0.1)
+        
+        # 验证结果
+        stats = stream_engine.get_system_stats()
+        assert stats['system']['total_processed'] >= 1
+    
+    def test_buffer_capacity(self, stream_engine):
+        """测试缓冲区容量"""
+        buffer = stream_engine.buffer
+        
+        # 测试缓冲区限制
+        for i in range(150):  # 超过缓冲区大小
+            event = StreamEvent(f"test_{i}", StreamEventType.DATA_ARRIVAL, 
+                              time.time(), {}, "test")
+            buffer.add(event)
+        
+        assert len(buffer.buffer) <= buffer.max_size</code></pre>
+                            </div>
+
+                            <h4>运行测试</h4>
+                            <div class="code-block">
+                                <pre><code># 运行所有测试
+pytest
+
+# 运行特定测试文件
+pytest tests/unit/test_streaming.py
+
+# 运行带覆盖率的测试
+pytest --cov=src tests/
+
+# 运行性能测试
+pytest tests/performance/ -v
+
+# 运行异步测试
+pytest -m asyncio</code></pre>
+                            </div>
+                        </section>
+
+                        <!-- 部署指南 -->
+                        <section id="deployment" class="mb-5">
+                            <h2><i class="fas fa-rocket text-primary"></i> 部署指南</h2>
+                            
+                            <h4>Docker部署</h4>
+                            <div class="code-block">
+                                <pre><code># 构建镜像
+docker build -t ai-lottery-predictor:v4.0 .
+
+# 运行容器
+docker run -d \
+  --name ai-lottery-predictor \
+  -p 8000:8000 \
+  -p 8765:8765 \
+  -v $(pwd)/data:/app/data \
+  -v $(pwd)/logs:/app/logs \
+  ai-lottery-predictor:v4.0
+
+# 使用Docker Compose
+docker-compose up -d</code></pre>
+                            </div>
+
+                            <h4>生产环境配置</h4>
+                            <div class="code-block">
+                                <pre><code># .env.production
+DEBUG=false
+LOG_LEVEL=INFO
+CACHE_ENABLED=true
+QUANTUM_ENABLED=true
+GPU_ENABLED=false
+DATABASE_PATH=/app/data/production.db
+WEBSOCKET_PORT=8765
+MAX_WORKERS=8
+RATE_LIMIT=1000</code></pre>
+                            </div>
+
+                            <h4>监控和日志</h4>
+                            <div class="code-block">
+                                <pre><code># 日志配置
+logging:
+  version: 1
+  formatters:
+    default:
+      format: '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+  handlers:
+    console:
+      class: logging.StreamHandler
+      formatter: default
+    file:
+      class: logging.handlers.RotatingFileHandler
+      filename: /app/logs/app.log
+      maxBytes: 10485760  # 10MB
+      backupCount: 5
+      formatter: default
+  root:
+    level: INFO
+    handlers: [console, file]</code></pre>
+                            </div>
+                        </section>
+
+                        <!-- 贡献指南 -->
+                        <section id="contribution" class="mb-5">
+                            <h2><i class="fas fa-hands-helping text-primary"></i> 贡献指南</h2>
+                            
+                            <h4>贡献流程</h4>
+                            <ol>
+                                <li><strong>Fork项目</strong> - 在GitHub上Fork项目到您的账户</li>
+                                <li><strong>创建分支</strong> - <code>git checkout -b feature/your-feature</code></li>
+                                <li><strong>编写代码</strong> - 遵循代码规范和最佳实践</li>
+                                <li><strong>编写测试</strong> - 为新功能添加相应的测试用例</li>
+                                <li><strong>运行测试</strong> - 确保所有测试通过</li>
+                                <li><strong>提交代码</strong> - 使用清晰的提交信息</li>
+                                <li><strong>创建PR</strong> - 在GitHub上创建Pull Request</li>
+                                <li><strong>代码审查</strong> - 响应审查意见并进行修改</li>
+                            </ol>
+
+                            <h4>代码规范</h4>
+                            <div class="code-block">
+                                <pre><code># 代码格式化
+black src/ tests/
+
+# 导入排序
+isort src/ tests/
+
+# 代码检查
+flake8 src/ tests/
+
+# 类型检查
+mypy src/</code></pre>
+                            </div>
+
+                            <h4>提交信息规范</h4>
+                            <div class="code-block">
+                                <pre><code># 格式: type(scope): description
+
+feat(streaming): add new event processing algorithm
+fix(quantum): resolve QAOA optimization bug
+docs(api): update API documentation
+test(visualization): add unit tests for chart engine
+refactor(core): improve error handling mechanism</code></pre>
+                            </div>
+
+                            <h4>代码审查清单</h4>
+                            <ul>
+                                <li>✅ 代码遵循项目规范</li>
+                                <li>✅ 添加了适当的测试用例</li>
+                                <li>✅ 所有测试通过</li>
+                                <li>✅ 文档已更新</li>
+                                <li>✅ 没有明显的性能问题</li>
+                                <li>✅ 错误处理完善</li>
+                                <li>✅ 日志记录适当</li>
+                            </ul>
+                        </section>
+
+                        <!-- 资源链接 -->
+                        <div class="alert alert-info">
+                            <h5><i class="fas fa-link"></i> 开发资源</h5>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <ul class="mb-0">
+                                        <li><a href="https://github.com/pe0ny9-a/AI-Lottery-Predictor" target="_blank">GitHub仓库</a></li>
+                                        <li><a href="https://github.com/pe0ny9-a/AI-Lottery-Predictor/issues" target="_blank">问题跟踪</a></li>
+                                        <li><a href="https://github.com/pe0ny9-a/AI-Lottery-Predictor/discussions" target="_blank">社区讨论</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-6">
+                                    <ul class="mb-0">
+                                        <li><a href="https://github.com/pe0ny9-a/AI-Lottery-Predictor/wiki" target="_blank">开发Wiki</a></li>
+                                        <li><a href="https://github.com/pe0ny9-a/AI-Lottery-Predictor/projects" target="_blank">项目看板</a></li>
+                                        <li><a href="mailto:pikachu237325@163.com">技术支持</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    
+    <script>
+        // 平滑滚动和侧边栏高亮
+        document.querySelectorAll('.sidebar .nav-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                    
+                    document.querySelectorAll('.sidebar .nav-link').forEach(l => l.classList.remove('active'));
+                    this.classList.add('active');
+                }
+            });
+        });
+
+        // 滚动监听
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.sidebar .nav-link');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (window.scrollY >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

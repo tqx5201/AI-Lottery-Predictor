@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>用户指南 - AI彩票预测系统 V4.0</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-color: #6366f1;
+            --secondary-color: #8b5cf6;
+        }
+        
+        .sidebar {
+            position: sticky;
+            top: 100px;
+            height: calc(100vh - 120px);
+            overflow-y: auto;
+        }
+        
+        .content-section {
+            padding: 80px 0 40px;
+        }
+        
+        .code-block {
+            background: #1a1a1a;
+            color: #f8f8f2;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            overflow-x: auto;
+        }
+        
+        .alert-custom {
+            border-left: 4px solid var(--primary-color);
+            background: rgba(99, 102, 241, 0.1);
+        }
+        
+        .feature-highlight {
+            background: linear-gradient(45deg, rgba(99, 102, 241, 0.1), rgba(139, 92, 246, 0.1));
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fas fa-brain"></i> AI彩票预测系统 V4.0
+            </a>
+            <div class="navbar-nav ms-auto">
+                <a class="nav-link" href="index.html">返回首页</a>
+                <a class="nav-link" href="api-docs.html">API文档</a>
+                <a class="nav-link" href="dev-guide.html">开发指南</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid content-section">
+        <div class="row">
+            <!-- 侧边栏 -->
+            <div class="col-lg-3">
+                <div class="sidebar">
+                    <div class="card">
+                        <div class="card-header bg-primary text-white">
+                            <h6 class="mb-0"><i class="fas fa-list"></i> 目录</h6>
+                        </div>
+                        <div class="card-body p-0">
+                            <nav class="nav nav-pills flex-column">
+                                <a class="nav-link" href="#installation">安装指南</a>
+                                <a class="nav-link" href="#quickstart">快速开始</a>
+                                <a class="nav-link" href="#features">功能使用</a>
+                                <a class="nav-link" href="#streaming">实时流处理</a>
+                                <a class="nav-link" href="#visualization">3D可视化</a>
+                                <a class="nav-link" href="#optimization">智能调优</a>
+                                <a class="nav-link" href="#quantum">量子计算</a>
+                                <a class="nav-link" href="#ai-assistant">AI助手</a>
+                                <a class="nav-link" href="#configuration">配置说明</a>
+                                <a class="nav-link" href="#troubleshooting">常见问题</a>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 主内容 -->
+            <div class="col-lg-9">
+                <div class="card shadow">
+                    <div class="card-body p-5">
+                        <h1 class="mb-4">📚 用户指南</h1>
+                        <p class="lead">欢迎使用AI彩票预测系统V4.0！本指南将帮助您快速上手并充分利用系统的强大功能。</p>
+
+                        <!-- 安装指南 -->
+                        <section id="installation" class="mb-5">
+                            <h2><i class="fas fa-download text-primary"></i> 安装指南</h2>
+                            
+                            <h4>系统要求</h4>
+                            <ul>
+                                <li><strong>操作系统：</strong> Windows 10+, Linux, macOS</li>
+                                <li><strong>Python版本：</strong> 3.8+</li>
+                                <li><strong>内存：</strong> 4GB+ (推荐8GB+)</li>
+                                <li><strong>存储：</strong> 2GB+</li>
+                                <li><strong>网络：</strong> 宽带连接 (用于实时功能)</li>
+                            </ul>
+
+                            <h4>基础安装</h4>
+                            <div class="code-block">
+                                <pre><code># 1. 克隆项目
+git clone https://github.com/pe0ny9-a/AI-Lottery-Predictor.git
+cd AI-Lottery-Predictor
+
+# 2. 创建虚拟环境 (推荐)
+python -m venv venv
+source venv/bin/activate  # Linux/Mac
+# 或
+venv\Scripts\activate  # Windows
+
+# 3. 安装基础依赖
+pip install -r requirements.txt
+
+# 4. 验证安装
+python test_advanced_features_simple.py</code></pre>
+                            </div>
+
+                            <h4>可选增强功能</h4>
+                            <div class="alert alert-custom">
+                                <i class="fas fa-info-circle"></i>
+                                <strong>提示：</strong> 以下依赖为可选安装，用于启用特定的高级功能。
+                            </div>
+
+                            <div class="code-block">
+                                <pre><code># 量子计算支持
+pip install qiskit qiskit-aer cirq
+
+# 高级可视化
+pip install plotly matplotlib seaborn
+
+# AI助手增强
+pip install nltk spacy transformers
+
+# 智能调优
+pip install optuna scikit-optimize
+
+# 实时处理
+pip install websockets aiohttp</code></pre>
+                            </div>
+                        </section>
+
+                        <!-- 快速开始 -->
+                        <section id="quickstart" class="mb-5">
+                            <h2><i class="fas fa-rocket text-primary"></i> 快速开始</h2>
+                            
+                            <h4>启动系统</h4>
+                            <div class="code-block">
+                                <pre><code># 交互模式启动
+python main.py --mode interactive
+
+# 演示模式启动
+python main.py --mode demo
+
+# 服务模式启动
+python main.py --mode service</code></pre>
+                            </div>
+
+                            <h4>基本使用</h4>
+                            <p>系统启动后，您可以通过以下方式与AI助手交互：</p>
+                            
+                            <div class="feature-highlight">
+                                <h6>🤖 自然语言交互示例：</h6>
+                                <ul>
+                                    <li>"预测双色球下期号码"</li>
+                                    <li>"分析最近30期的频率"</li>
+                                    <li>"查询2024001期开奖结果"</li>
+                                    <li>"什么是量子计算？"</li>
+                                    <li>"显示系统状态"</li>
+                                </ul>
+                            </div>
+                        </section>
+
+                        <!-- 功能使用 -->
+                        <section id="features" class="mb-5">
+                            <h2><i class="fas fa-star text-primary"></i> 核心功能使用</h2>
+                            
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="card h-100">
+                                        <div class="card-body">
+                                            <h5><i class="fas fa-chart-line"></i> 预测功能</h5>
+                                            <ul>
+                                                <li>多算法集成预测</li>
+                                                <li>置信度评估</li>
+                                                <li>历史准确率统计</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="card h-100">
+                                        <div class="card-body">
+                                            <h5><i class="fas fa-chart-bar"></i> 分析功能</h5>
+                                            <ul>
+                                                <li>频率分析</li>
+                                                <li>趋势分析</li>
+                                                <li>相关性分析</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- 实时流处理 -->
+                        <section id="streaming" class="mb-5">
+                            <h2><i class="fas fa-stream text-primary"></i> 实时流处理</h2>
+                            
+                            <p>实时流处理系统提供高性能的数据流分析能力：</p>
+                            
+                            <h4>主要特性</h4>
+                            <ul>
+                                <li><strong>高并发处理：</strong> 支持10,000+ QPS事件处理</li>
+                                <li><strong>实时分析：</strong> 毫秒级趋势分析和模式识别</li>
+                                <li><strong>WebSocket推送：</strong> 实时数据广播</li>
+                                <li><strong>智能路由：</strong> 多类型事件的智能分发</li>
+                            </ul>
+
+                            <h4>使用示例</h4>
+                            <div class="code-block">
+                                <pre><code>from src.streaming.realtime_processor import get_stream_engine
+
+# 获取流处理引擎
+engine = await get_stream_engine()
+
+# 发送事件
+await engine.emit_event(lottery_data_event)
+
+# 查看统计信息
+stats = engine.get_system_stats()
+print(f"处理速率: {stats['system']['processing_rate']} events/sec")</code></pre>
+                            </div>
+                        </section>
+
+                        <!-- 3D可视化 -->
+                        <section id="visualization" class="mb-5">
+                            <h2><i class="fas fa-cube text-primary"></i> 3D可视化</h2>
+                            
+                            <p>强大的3D可视化引擎支持多种交互式图表：</p>
+                            
+                            <h4>支持的图表类型</h4>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <ul>
+                                        <li>3D散点图</li>
+                                        <li>3D表面图</li>
+                                        <li>网络关系图</li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-4">
+                                    <ul>
+                                        <li>热力图</li>
+                                        <li>动画图表</li>
+                                        <li>交互式仪表板</li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-4">
+                                    <ul>
+                                        <li>多主题支持</li>
+                                        <li>响应式布局</li>
+                                        <li>导出功能</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <h4>使用示例</h4>
+                            <div class="code-block">
+                                <pre><code>from src.visualization.enhanced_charts import get_visualization_engine, ChartType
+
+# 获取可视化引擎
+engine = get_visualization_engine()
+
+# 创建3D趋势图
+chart = engine.create_chart(
+    ChartType.SCATTER_3D,
+    "trend_analysis",
+    data={'history_data': lottery_data},
+    config={'title': '双色球3D趋势分析'}
+)
+
+# 导出图表
+engine.export_chart("trend_analysis", "output/trend.html")</code></pre>
+                            </div>
+                        </section>
+
+                        <!-- 智能调优 -->
+                        <section id="optimization" class="mb-5">
+                            <h2><i class="fas fa-brain text-primary"></i> 智能调优</h2>
+                            
+                            <p>自动化的超参数优化和模型选择系统：</p>
+                            
+                            <h4>优化算法</h4>
+                            <ul>
+                                <li><strong>贝叶斯优化：</strong> 基于高斯过程的智能搜索</li>
+                                <li><strong>遗传算法：</strong> 进化计算优化</li>
+                                <li><strong>粒子群优化：</strong> 群体智能优化</li>
+                                <li><strong>网格搜索：</strong> 穷举式参数搜索</li>
+                                <li><strong>随机搜索：</strong> 随机采样优化</li>
+                            </ul>
+
+                            <h4>使用示例</h4>
+                            <div class="code-block">
+                                <pre><code>from src.optimization.intelligent_tuner import get_intelligent_tuner, ParameterSpace, OptimizationMethod
+
+# 获取调优器
+tuner = get_intelligent_tuner()
+
+# 定义参数空间
+param_spaces = [
+    ParameterSpace('learning_rate', 'float', bounds=(0.001, 0.1), log_scale=True),
+    ParameterSpace('n_estimators', 'int', bounds=(50, 500))
+]
+
+# 执行优化
+result = tuner.optimize_model_parameters(
+    model_class=RandomForestRegressor,
+    parameter_spaces=param_spaces,
+    X_train=X_train, y_train=y_train,
+    X_val=X_val, y_val=y_val,
+    method=OptimizationMethod.BAYESIAN
+)</code></pre>
+                            </div>
+                        </section>
+
+                        <!-- 量子计算 -->
+                        <section id="quantum" class="mb-5">
+                            <h2><i class="fas fa-atom text-primary"></i> 量子计算</h2>
+                            
+                            <p>集成多种量子算法，为预测提供量子优势：</p>
+                            
+                            <h4>支持的量子算法</h4>
+                            <ul>
+                                <li><strong>QAOA：</strong> 量子近似优化算法</li>
+                                <li><strong>量子神经网络：</strong> 参数化量子线路</li>
+                                <li><strong>Grover搜索：</strong> 量子加速搜索</li>
+                                <li><strong>量子退火：</strong> Ising模型优化</li>
+                            </ul>
+
+                            <div class="alert alert-custom">
+                                <i class="fas fa-lightbulb"></i>
+                                <strong>注意：</strong> 量子功能需要安装额外的量子计算库(qiskit, cirq)。
+                            </div>
+
+                            <h4>使用示例</h4>
+                            <div class="code-block">
+                                <pre><code>from src.quantum.quantum_algorithms import get_quantum_ml
+
+# 获取量子机器学习实例
+qml = get_quantum_ml()
+
+# 量子优化彩票选择
+result = qml.optimize_lottery_selection(
+    historical_data=lottery_history,
+    num_selections=6
+)
+
+print(f"量子预测号码: {result['selected_numbers']}")
+print(f"置信度: {result['confidence']:.2%}")
+print(f"量子优势: {result['quantum_advantage']}")</code></pre>
+                            </div>
+                        </section>
+
+                        <!-- AI助手 -->
+                        <section id="ai-assistant" class="mb-5">
+                            <h2><i class="fas fa-robot text-primary"></i> AI智能助手</h2>
+                            
+                            <p>自然语言交互的智能助手，支持多轮对话和上下文理解：</p>
+                            
+                            <h4>核心能力</h4>
+                            <ul>
+                                <li><strong>意图识别：</strong> 理解用户真实意图</li>
+                                <li><strong>实体提取：</strong> 提取关键信息</li>
+                                <li><strong>上下文感知：</strong> 多轮对话管理</li>
+                                <li><strong>情感分析：</strong> 用户情感识别</li>
+                                <li><strong>知识库问答：</strong> 专业知识查询</li>
+                            </ul>
+
+                            <h4>交互示例</h4>
+                            <div class="feature-highlight">
+                                <h6>📝 对话示例：</h6>
+                                <p><strong>用户：</strong> "我想了解系统的预测准确率"</p>
+                                <p><strong>助手：</strong> "根据历史数据统计，我们的系统预测准确率达到85%以上。这个准确率是通过多种算法集成和智能调优实现的..."</p>
+                                
+                                <p><strong>用户：</strong> "能帮我预测一下下期双色球吗？"</p>
+                                <p><strong>助手：</strong> "当然可以！我来为您进行预测分析..."</p>
+                            </div>
+
+                            <h4>编程接口</h4>
+                            <div class="code-block">
+                                <pre><code>from src.ai_assistant.intelligent_assistant import get_intelligent_assistant
+
+# 获取AI助手
+assistant = get_intelligent_assistant()
+
+# 处理用户消息
+response = assistant.process_message("预测双色球下期号码")
+
+print(f"助手回复: {response.content}")
+print(f"置信度: {response.confidence:.2%}")
+
+# 获取对话历史
+history = assistant.get_conversation_history()
+for msg in history[-5:]:  # 显示最近5条消息
+    print(f"{msg['role']}: {msg['content'][:50]}...")</code></pre>
+                            </div>
+                        </section>
+
+                        <!-- 配置说明 -->
+                        <section id="configuration" class="mb-5">
+                            <h2><i class="fas fa-cog text-primary"></i> 配置说明</h2>
+                            
+                            <p>系统支持多种配置选项来优化性能和功能：</p>
+                            
+                            <h4>环境变量配置</h4>
+                            <div class="code-block">
+                                <pre><code># 创建 .env 文件
+LOG_LEVEL=INFO
+CACHE_ENABLED=true
+QUANTUM_ENABLED=false  # 是否启用量子功能
+GPU_ENABLED=false      # 是否启用GPU加速
+WEBSOCKET_PORT=8765    # WebSocket端口
+DATABASE_PATH=data/lottery.db</code></pre>
+                            </div>
+
+                            <h4>命令行参数</h4>
+                            <div class="code-block">
+                                <pre><code># 查看所有可用参数
+python main.py --help
+
+# 常用参数示例
+python main.py --mode interactive --log-level DEBUG
+python main.py --mode service --port 8000</code></pre>
+                            </div>
+                        </section>
+
+                        <!-- 常见问题 -->
+                        <section id="troubleshooting" class="mb-5">
+                            <h2><i class="fas fa-question-circle text-primary"></i> 常见问题</h2>
+                            
+                            <div class="accordion" id="faqAccordion">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                                            系统启动时提示模块不可用怎么办？
+                                        </button>
+                                    </h2>
+                                    <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                                        <div class="accordion-body">
+                                            这通常是由于可选依赖未安装导致的。系统会自动降级到基础功能模式。如需启用完整功能，请安装相应的可选依赖包。
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                                            如何提高预测准确率？
+                                        </button>
+                                    </h2>
+                                    <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                        <div class="accordion-body">
+                                            <ul>
+                                                <li>增加历史数据量</li>
+                                                <li>使用智能调优功能优化模型参数</li>
+                                                <li>启用量子算法增强预测</li>
+                                                <li>定期更新模型</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                                            量子功能需要特殊硬件吗？
+                                        </button>
+                                    </h2>
+                                    <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                        <div class="accordion-body">
+                                            不需要。系统使用量子模拟器运行，在普通计算机上即可使用。未来版本将支持连接真实的量子云服务。
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
+                                            系统支持哪些彩票类型？
+                                        </button>
+                                    </h2>
+                                    <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                        <div class="accordion-body">
+                                            目前主要支持双色球和大乐透。系统架构设计为可扩展的，可以轻松添加其他彩票类型的支持。
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- 联系支持 -->
+                        <div class="alert alert-info">
+                            <h5><i class="fas fa-life-ring"></i> 需要帮助？</h5>
+                            <p class="mb-2">如果您遇到问题或需要技术支持，请通过以下方式联系我们：</p>
+                            <ul class="mb-0">
+                                <li><strong>GitHub Issues：</strong> <a href="https://github.com/pe0ny9-a/AI-Lottery-Predictor/issues" target="_blank">报告问题</a></li>
+                                <li><strong>GitHub Discussions：</strong> <a href="https://github.com/pe0ny9-a/AI-Lottery-Predictor/discussions" target="_blank">社区讨论</a></li>
+                                <li><strong>邮箱：</strong> <a href="mailto:pikachu237325@163.com">pikachu237325@163.com</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    
+    <script>
+        // 平滑滚动和侧边栏高亮
+        document.querySelectorAll('.sidebar .nav-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                    
+                    // 更新活动状态
+                    document.querySelectorAll('.sidebar .nav-link').forEach(l => l.classList.remove('active'));
+                    this.classList.add('active');
+                }
+            });
+        });
+
+        // 滚动监听
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.sidebar .nav-link');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (window.scrollY >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

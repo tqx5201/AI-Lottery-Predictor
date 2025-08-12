@@ -1,0 +1,235 @@
+# AI彩票预测系统 .gitignore
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# IPython
+profile_default/
+ipython_config.py
+
+# pyenv
+.python-version
+
+# pipenv
+Pipfile.lock
+
+# PEP 582
+__pypackages__/
+
+# Celery stuff
+celerybeat-schedule
+celerybeat.pid
+
+# SageMath parsed files
+*.sage.py
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Spyder project settings
+.spyderproject
+.spyproject
+
+# Rope project settings
+.ropeproject
+
+# mkdocs documentation
+/site
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pyre type checker
+.pyre/
+
+# 项目特定文件
+# 数据文件
+data/
+*.db
+*.sqlite
+*.sqlite3
+
+# 日志文件
+logs/
+*.log
+
+# 配置文件
+config/local.yaml
+config/production.yaml
+.env.local
+.env.production
+
+# 模型文件
+models/
+*.pkl
+*.joblib
+*.h5
+*.pt
+*.pth
+
+# 输出文件
+output/
+results/
+charts_output/
+exports/
+
+# 临时文件
+temp/
+tmp/
+*.tmp
+*.bak
+
+# IDE 文件
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+*.lnk
+
+# Linux
+*~
+
+# 量子计算缓存
+.qiskit/
+qiskit_cache/
+
+# 可视化输出
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.svg
+*.pdf
+*.html
+!docs/*.html
+
+# 测试输出
+test_output/
+test_results/
+
+# 文档生成
+docs/_build/
+docs/build/
+
+# 性能分析
+*.prof
+profile_output/
+
+# 数据库备份
+*.backup
+*.dump
+
+# 系统监控
+monitoring/
+metrics/
+
+# 部署文件
+docker-compose.override.yml
+.dockerignore
+Dockerfile.local
+
+# 密钥和证书
+*.key
+*.pem
+*.crt
+*.p12
+
+# 缓存目录
+cache/
+.cache/
+
+# 用户上传文件
+uploads/
+user_data/
+
+# 第三方库下载
+downloads/
+vendor/
+
+# 本地开发配置
+local_settings.py
+development.ini
+
+# 性能测试结果
+benchmarks/
+performance/
+
+# AI模型权重
+weights/
+checkpoints/
+
+# 量子线路图
+circuits/
+quantum_plots/

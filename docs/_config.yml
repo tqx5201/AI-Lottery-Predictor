@@ -1,0 +1,126 @@
+# GitHub Pages 配置文件
+title: AI彩票预测系统 V4.0
+description: 集成实时流处理、3D可视化、智能调优、量子计算、AI助手等5大前沿技术的智能彩票预测系统
+url: "https://pe0ny9-a.github.io"
+baseurl: "/AI-Lottery-Predictor"
+
+# 主题设置
+theme: jekyll-theme-cayman
+remote_theme: pages-themes/cayman@v0.2.0
+
+# 网站信息
+author:
+  name: Pe0ny9
+  email: pikachu237325@163.com
+  github: pe0ny9-a
+
+# SEO 设置
+lang: zh-CN
+timezone: Asia/Shanghai
+
+# 社交媒体
+social:
+  - name: GitHub
+    url: https://github.com/pe0ny9-a/AI-Lottery-Predictor
+  - name: Email
+    url: mailto:pikachu237325@163.com
+
+# 导航菜单
+navigation:
+  - title: 首页
+    url: /
+  - title: 功能特性
+    url: /#features
+  - title: 快速开始
+    url: /#quickstart
+  - title: 用户指南
+    url: /user-guide
+  - title: API文档
+    url: /api-docs
+  - title: 开发指南
+    url: /dev-guide
+  - title: GitHub
+    url: https://github.com/pe0ny9-a/AI-Lottery-Predictor
+
+# 插件
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+  - jekyll-github-metadata
+
+# Markdown 设置
+markdown: kramdown
+highlighter: rouge
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
+# 排除文件
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+
+# 包含文件
+include:
+  - _pages
+
+# 集合设置
+collections:
+  pages:
+    output: true
+    permalink: /:name/
+
+# 默认设置
+defaults:
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "default"
+      author: "Pe0ny9"
+
+# Google Analytics (可选)
+# google_analytics: UA-XXXXXXXXX-X
+
+# 网站关键词
+keywords: 
+  - AI彩票预测
+  - 量子计算
+  - 实时流处理
+  - 3D可视化
+  - 智能调优
+  - AI助手
+  - 机器学习
+  - 深度学习
+
+# 项目信息
+project:
+  version: "4.0.0"
+  release_date: "2025-08-12"
+  license: "MIT"
+  python_version: "3.8+"
+  
+# 功能特性
+features:
+  - name: "实时流处理"
+    icon: "🌊"
+    description: "高性能事件驱动架构，支持10,000+ QPS"
+  - name: "3D可视化"
+    icon: "🎨"
+    description: "交互式3D图表和动画效果"
+  - name: "智能调优"
+    icon: "🧠"
+    description: "自动超参数优化和模型选择"
+  - name: "量子计算"
+    icon: "⚛️"
+    description: "集成QAOA、量子神经网络等算法"
+  - name: "AI助手"
+    icon: "🤖"
+    description: "自然语言交互和智能对话"

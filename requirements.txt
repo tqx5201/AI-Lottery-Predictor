@@ -1,0 +1,113 @@
+# AI彩票预测系统 V4.0 依赖清单
+
+# 基础科学计算
+numpy>=1.21.0
+pandas>=2.0.0
+scipy>=1.7.0
+
+# 机器学习核心
+scikit-learn>=1.0.0
+xgboost>=1.5.0
+lightgbm>=3.3.0
+
+# 深度学习 (可选)
+torch>=1.9.0
+tensorflow>=2.6.0
+
+# 数据可视化
+matplotlib>=3.5.0
+seaborn>=0.11.0
+plotly>=5.0.0
+
+# 数据库和存储
+sqlite3  # Python内置
+sqlalchemy>=1.4.0
+
+# 异步和网络
+asyncio  # Python内置
+aiohttp>=3.8.0
+websockets>=10.0
+
+# 日志和配置
+pyyaml>=6.0
+python-dateutil>=2.8.0
+pytz>=2021.3
+
+# 界面开发 (可选)
+PyQt5>=5.15.0
+tkinter  # Python内置
+
+# 优化库 (可选 - 智能调优)
+optuna>=3.0.0
+scikit-optimize>=0.9.0
+hyperopt>=0.2.7
+
+# 量子计算 (可选 - 量子功能)
+qiskit>=0.39.0
+qiskit-aer>=0.11.0
+cirq>=1.0.0
+
+# 自然语言处理 (可选 - AI助手)
+nltk>=3.7
+spacy>=3.4.0
+transformers>=4.20.0
+
+# 科学计算增强 (可选)
+numba>=0.56.0
+joblib>=1.1.0
+
+# 开发和测试
+pytest>=7.0.0
+pytest-asyncio>=0.20.0
+pytest-cov>=4.0.0
+black>=22.0.0
+flake8>=5.0.0
+
+# 性能监控
+psutil>=5.9.0
+memory-profiler>=0.60.0
+
+# 数据处理
+openpyxl>=3.0.0
+xlrd>=2.0.0
+
+# 网络请求
+requests>=2.28.0
+urllib3>=1.26.0
+
+# 加密和安全
+cryptography>=37.0.0
+
+# 时间处理
+arrow>=1.2.0
+
+# 进度条
+tqdm>=4.64.0
+
+# 配置管理
+python-dotenv>=0.20.0
+
+# 多进程
+multiprocessing-logging>=0.3.0
+
+# 系统信息
+platform  # Python内置
+os  # Python内置
+sys  # Python内置
+time  # Python内置
+json  # Python内置
+logging  # Python内置
+threading  # Python内置
+queue  # Python内置
+collections  # Python内置
+dataclasses  # Python内置
+enum  # Python内置
+abc  # Python内置
+typing  # Python内置
+random  # Python内置
+math  # Python内置
+cmath  # Python内置
+itertools  # Python内置
+functools  # Python内置
+pathlib  # Python内置
+re  # Python内置
