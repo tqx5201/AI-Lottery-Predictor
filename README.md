@@ -1,9 +1,10 @@
-# 🎊 AI彩票预测系统 V4.0
+# 🎊 AI彩票预测系统 V4.1.0
 
 [![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://www.python.org/downloads/)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-[![Version](https://img.shields.io/badge/Version-4.0-red.svg)](https://github.com/yourusername/AI-Lottery-Predictor)
-[![Status](https://img.shields.io/badge/Status-Production%20Ready-brightgreen.svg)](https://github.com/yourusername/AI-Lottery-Predictor)
+[![Version](https://img.shields.io/badge/Version-4.1.0-red.svg)](https://github.com/Pe0ny9-A/AI-Lottery-Predictor)
+[![Status](https://img.shields.io/badge/Status-Production%20Ready-brightgreen.svg)](https://github.com/Pe0ny9-A/AI-Lottery-Predictor)
+[![Release](https://img.shields.io/badge/Release-2025.08.12-blue.svg)](https://github.com/Pe0ny9-A/AI-Lottery-Predictor/releases/tag/v4.1.0)
 
 > 🚀 **行业领先的智能彩票预测系统，集成5大前沿技术**
 
@@ -65,10 +66,13 @@ cd AI-Lottery-Predictor
 # 2. 安装基础依赖
 pip install -r requirements.txt
 
-# 3. 运行功能测试
-python test_advanced_features_simple.py
+# 3. 🆕 自动安装和配置模型 (v4.1.0新增)
+python setup_models.py
 
-# 4. 启动系统
+# 4. 运行核心功能测试
+python test_core_functionality.py
+
+# 5. 启动系统
 python main.py
 ```
 
@@ -81,7 +85,7 @@ pip install qiskit qiskit-aer cirq
 # 高级可视化
 pip install plotly matplotlib seaborn
 
-# AI助手增强
+# AI助手增强 (v4.1.0已优化)
 pip install nltk spacy transformers
 
 # 智能调优
@@ -89,6 +93,23 @@ pip install optuna scikit-optimize
 
 # 实时处理
 pip install websockets aiohttp
+```
+
+### 🆘 v4.1.0 故障排除
+
+```bash
+# 如果遇到PyTorch版本问题
+pip install torch>=2.1.0 --upgrade
+
+# 如果SpaCy模型缺失
+python -m spacy download en_core_web_sm
+python -m spacy download zh_core_web_sm
+
+# 如果Transformers模型下载失败
+# 请确保网络连接正常，系统会自动重试
+
+# 一键解决所有环境问题
+python setup_models.py
 ```
 
 ## 📊 性能表现
@@ -132,15 +153,20 @@ AI-Lottery-Predictor/
 │   ├── visualization/      # 🎨 增强可视化引擎
 │   ├── optimization/       # 🧠 智能调优系统
 │   ├── quantum/           # ⚛️ 量子计算集成
-│   ├── ai_assistant/      # 🤖 AI智能助手
+│   ├── ai_assistant/      # 🤖 AI智能助手 (v4.1.0优化)
 │   ├── ml/               # 🎯 机器学习引擎
 │   ├── core/             # 🏗️ 核心基础设施
 │   ├── utils/            # 🔧 优化工具集
 │   └── gui/              # 🎨 现代化界面
 ├── tests/                # 🧪 测试套件
 ├── docs/                 # 📚 项目文档
-├── requirements.txt      # 📦 依赖清单
-└── README.md            # 📖 项目说明
+├── setup_models.py       # 🆕 自动模型安装脚本 (v4.1.0)
+├── test_core_functionality.py  # 🆕 核心功能测试 (v4.1.0)
+├── test_real_prediction.py     # 🆕 真实预测测试 (v4.1.0)
+├── SETUP.md              # 🆕 环境配置指南 (v4.1.0)
+├── CHANGELOG.md          # 🆕 版本更新日志 (v4.1.0)
+├── requirements.txt      # 📦 依赖清单 (v4.1.0更新)
+└── README.md            # 📖 项目说明 (v4.1.0更新)
 ```
 
 ## 🎯 使用示例
@@ -211,24 +237,43 @@ chart = engine.create_chart(ChartType.SCATTER_3D, "trend_3d", data)
 
 ## 🧪 测试验证
 
-### ✅ 功能测试结果
+### ✅ v4.1.0核心功能测试结果
 ```
-🎯 前沿技术功能测试结果:
+🎊 AI彩票预测系统核心功能测试结果 (v4.1.0):
 ════════════════════════════════════════════════════════════
-   实时流处理核心: ✅ 通过
-   可视化核心: ✅ 通过  
-   智能调优核心: ✅ 通过
-   量子计算核心: ✅ 通过
-   AI助手核心: ✅ 通过
-   系统集成: ✅ 通过
+   数据库连接: ✅ 正常
+   AI助手功能: ✅ 正常 
+   模型训练预测: ✅ 正常
+   数据分析: ✅ 正常
+   SpaCy模型: ✅ 中文模型加载完成
+   PyTorch版本: ✅ 2.8.0+cpu
+   Transformers: ✅ 情感分析模型正常
 ════════════════════════════════════════════════════════════
-📊 总体结果: 6/6 测试通过 (100.0%)
-🎉 所有前沿技术功能测试通过！
+📊 总体结果: 4/4 核心模块测试通过 (100.0%)
+🎯 系统已就绪，可以进行真实预测！
+```
+
+### 🎯 预测能力验证
+```
+🎲 双色球预测示例 (v4.1.0):
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+红球预测: [1, 10, 15, 22, 26, 30]
+蓝球预测: [15]
+预测置信度: 0.542
+模型: XGBoost
+训练数据: 50期历史数据
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 
 ### 🔬 运行测试
 ```bash
-# 运行完整测试套件
+# v4.1.0 新增：运行核心功能测试
+python test_core_functionality.py
+
+# v4.1.0 新增：运行真实预测测试
+python test_real_prediction.py
+
+# 传统：运行前沿技术测试
 python test_advanced_features_simple.py
 ```
 
@@ -248,7 +293,16 @@ python test_advanced_features_simple.py
 
 ## 🎖️ 版本历程
 
-- **V4.0** (Current) - 前沿技术集成版本
+- **V4.1.0** (Current) - 2025年8月12日 🆕
+  - 🔧 **重大修复**: PyTorch版本升级(2.0.1→2.8.0+cpu)
+  - ✨ **新增功能**: 自动模型安装脚本(setup_models.py)
+  - 📚 **环境指南**: 详细配置文档(SETUP.md)
+  - 🧪 **测试套件**: 核心功能测试(test_core_functionality.py)
+  - 🤖 **AI优化**: 修复Transformers导入，添加SpaCy中英文模型
+  - 📊 **状态修正**: 准确的测试结果报告
+  - 🎯 **系统验证**: 所有核心功能100%通过测试
+
+- **V4.0** - 前沿技术集成版本
   - ➕ 实时流处理系统
   - ➕ 3D增强可视化
   - ➕ 智能调优系统  
@@ -335,9 +389,12 @@ python test_advanced_features_simple.py
 
 <div align="center">
 
-**🎊 AI彩票预测系统 V4.0 - 让预测更智能，让未来更精彩！**
+**🎊 AI彩票预测系统 V4.1.0 - 让预测更智能，让未来更精彩！**
+
+*🆕 v4.1.0 重大更新 (2025.08.12): 修复关键问题，优化用户体验，系统更稳定！*
 
 [![Built with ❤️](https://img.shields.io/badge/Built%20with-❤️-red.svg)](https://github.com/pe0ny9-a/AI-Lottery-Predictor)
 [![Powered by AI](https://img.shields.io/badge/Powered%20by-Pe0ny9-blue.svg)](https://github.com/pe0ny9-a/AI-Lottery-Predictor)
+[![Latest Release](https://img.shields.io/badge/Latest-v4.1.0-orange.svg)](https://github.com/Pe0ny9-A/AI-Lottery-Predictor/releases/tag/v4.1.0)
 
 </div>
