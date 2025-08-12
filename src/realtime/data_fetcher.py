@@ -263,7 +263,7 @@ class DataFetcher:
             
         except Exception as e:
             logger.error(f"从500彩票网获取数据失败: {e}")
-                return []
+            return []
             
     def _get_current_number_500wan(self, lottery_name: str, source_config: Dict) -> str:
         """获取500彩票网最新期号"""
@@ -362,7 +362,7 @@ class DataFetcher:
                         if len(tds) > 8:
                             date_text = tds[8].get_text().strip()
                             item['date'] = date_text if date_text else datetime.now().strftime('%Y-%m-%d')
-            else:
+                        else:
                             item['date'] = datetime.now().strftime('%Y-%m-%d')
                     
                     elif lottery_name == 'dlt':  # 大乐透
@@ -389,7 +389,7 @@ class DataFetcher:
                     if item:
                         data.append(item)
                 
-        except Exception as e:
+                except Exception as e:
                     logger.debug(f"解析行数据失败: {e}")
                     continue
             

@@ -24,12 +24,15 @@ except ImportError:
     openai = None
 
 try:
-    from transformers import pipeline, AutoTokenizer, AutoModel
     import torch
+    from transformers import pipeline, AutoTokenizer, AutoModel
     TRANSFORMERS_AVAILABLE = True
-except ImportError:
+    TORCH_AVAILABLE = True
+except ImportError as e:
     TRANSFORMERS_AVAILABLE = False
+    TORCH_AVAILABLE = False
     pipeline = AutoTokenizer = AutoModel = torch = None
+    logger.warning(f"Transformers/PyTorch导入失败: {e}")
 
 try:
     import nltk
@@ -148,25 +151,46 @@ class NLPProcessor:
                 logger.info("NLTK初始化完成")
             
             if SPACY_AVAILABLE:
-                try:
-                    self.nlp_model = spacy.load("zh_core_web_sm")
-                    logger.info("SpaCy中文模型加载完成")
-                except OSError:
+                self.nlp_model = None
+                # 尝试加载不同的SpaCy模型，按优先级排序
+                models_to_try = [
+                    ("zh_core_web_sm", "中文"),
+                    ("en_core_web_sm", "英文"),
+                    ("en_core_web_md", "英文-中等"),
+                    ("en_core_web_lg", "英文-大型")
+                ]
+                
+                for model_name, model_desc in models_to_try:
                     try:
-                        self.nlp_model = spacy.load("en_core_web_sm")
-                        logger.info("SpaCy英文模型加载完成")
+                        self.nlp_model = spacy.load(model_name)
+                        logger.info(f"SpaCy{model_desc}模型({model_name})加载完成")
+                        break
                     except OSError:
-                        logger.warning("SpaCy模型加载失败")
+                        continue
+                
+                if self.nlp_model is None:
+                    logger.warning("SpaCy模型加载失败，请运行 'python setup_models.py' 安装模型")
+            else:
+                logger.info("SpaCy不可用，跳过模型加载")
             
-            if TRANSFORMERS_AVAILABLE:
+            if TRANSFORMERS_AVAILABLE and TORCH_AVAILABLE:
                 try:
-                    # 使用中文预训练模型
+                    # 检查PyTorch版本
+                    if hasattr(torch, '__version__'):
+                        torch_version = torch.__version__
+                        logger.info(f"PyTorch版本: {torch_version}")
+                    
+                    # 使用更轻量级的模型，避免网络下载问题
                     self.sentiment_pipeline = pipeline("sentiment-analysis", 
-                                                      model="uer/roberta-base-finetuned-chinanews-chinese")
+                                                      model="distilbert-base-uncased-finetuned-sst-2-english",
+                                                      return_all_scores=True)
                     logger.info("Transformers情感分析模型加载完成")
                 except Exception as e:
                     logger.warning(f"Transformers模型加载失败: {e}")
                     self.sentiment_pipeline = None
+            else:
+                logger.info("Transformers或PyTorch不可用，跳过模型加载")
+                self.sentiment_pipeline = None
             
         except Exception as e:
             logger.error(f"NLP初始化失败: {e}")

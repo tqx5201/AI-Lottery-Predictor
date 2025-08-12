@@ -41,6 +41,22 @@ class DatabaseManager:
         conn.row_factory = sqlite3.Row  # 启用字典式访问
         return conn
     
+    def test_connection(self) -> bool:
+        """测试数据库连接"""
+        try:
+            conn = self.get_connection()
+            cursor = conn.cursor()
+            cursor.execute("SELECT 1")
+            conn.close()
+            return True
+        except Exception as e:
+            logger.error(f"数据库连接测试失败: {e}")
+            return False
+    
+    def create_tables(self):
+        """创建数据库表结构（对外接口）"""
+        self.init_database()
+    
     def init_database(self):
         """初始化数据库表结构"""
         conn = self.get_connection()

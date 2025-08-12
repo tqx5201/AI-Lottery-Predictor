@@ -84,6 +84,87 @@ class LotteryAnalysis:
             'statistical': 0.10   # 统计分析权重
         }
     
+    def analyze_lottery_data(self, lottery_type: str, history_data: List[Dict]) -> Dict[str, Any]:
+        """
+        分析彩票数据（对外接口）
+        
+        Args:
+            lottery_type: 彩票类型
+            history_data: 历史数据列表
+            
+        Returns:
+            分析结果字典
+        """
+        try:
+            logger.info(f"开始分析{lottery_type}数据，数据量: {len(history_data)}")
+            
+            if not history_data:
+                return {
+                    'lottery_type': lottery_type,
+                    'analysis_date': datetime.now().isoformat(),
+                    'data_count': 0,
+                    'error': '无历史数据'
+                }
+            
+            # 执行各项分析
+            analysis_results = {}
+            
+            # 频率分析
+            try:
+                freq_result = self._analyze_frequency(history_data, lottery_type)
+                analysis_results['frequency_analysis'] = freq_result
+            except Exception as e:
+                logger.warning(f"频率分析失败: {e}")
+            
+            # 趋势分析
+            try:
+                trend_result = self._analyze_trend(history_data, lottery_type)
+                analysis_results['trend_analysis'] = trend_result
+            except Exception as e:
+                logger.warning(f"趋势分析失败: {e}")
+            
+            # 模式分析
+            try:
+                pattern_result = self._analyze_pattern(history_data, lottery_type)
+                analysis_results['pattern_analysis'] = pattern_result
+            except Exception as e:
+                logger.warning(f"模式分析失败: {e}")
+            
+            # 热冷号分析
+            try:
+                hot_cold_result = self._analyze_hot_cold(history_data, lottery_type)
+                analysis_results['hot_cold_analysis'] = hot_cold_result
+            except Exception as e:
+                logger.warning(f"热冷号分析失败: {e}")
+            
+            # 统计分析
+            try:
+                stat_result = self._analyze_statistical(history_data, lottery_type)
+                analysis_results['statistical_analysis'] = stat_result
+            except Exception as e:
+                logger.warning(f"统计分析失败: {e}")
+            
+            # 构建综合结果
+            result = {
+                'lottery_type': lottery_type,
+                'analysis_date': datetime.now().isoformat(),
+                'data_count': len(history_data),
+                'confidence_score': 0.8,  # 默认置信度
+                **analysis_results
+            }
+            
+            logger.info(f"✅ {lottery_type}数据分析完成")
+            return result
+            
+        except Exception as e:
+            logger.error(f"分析彩票数据失败: {e}")
+            return {
+                'lottery_type': lottery_type,
+                'analysis_date': datetime.now().isoformat(),
+                'data_count': len(history_data) if history_data else 0,
+                'error': str(e)
+            }
+    
     def comprehensive_analysis(self, lottery_type: str, period_range: str = "最近100期",
                              force_refresh: bool = False, use_parallel: bool = True) -> Dict[str, Any]:
         """
