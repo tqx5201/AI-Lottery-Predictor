@@ -325,26 +325,6 @@ python test_advanced_features_simple.py
   - ➕ 数据管理
   - ➕ 简单界面
 
-## 🔮 未来规划
-
-### 📅 短期计划 (3个月)
-- [ ] 移动端应用开发
-- [ ] 云端部署支持
-- [ ] RESTful API服务
-- [ ] 多用户系统
-
-### 📅 中期计划 (6个月)
-- [ ] 分布式计算支持
-- [ ] 联邦学习集成
-- [ ] 边缘计算部署
-- [ ] 区块链验证
-
-### 📅 长期愿景 (1年)
-- [ ] AGI大模型集成
-- [ ] 量子云服务连接
-- [ ] VR/AR交互界面
-- [ ] 自进化学习系统
-
 ## 🤝 贡献指南
 
 我们欢迎社区贡献！请查看 [CONTRIBUTING.md](CONTRIBUTING.md) 了解详细信息。
@@ -366,8 +346,7 @@ python test_advanced_features_simple.py
 
 ## 🙏 致谢
 
-感谢以下开源项目和工具的支持：
-- [Cursor](https://cursor.com/) - AI驱动的代码编辑器，提供卓越的开发体验 🤖
+感谢以下开源项目的支持：
 - [Qiskit](https://qiskit.org/) - 量子计算框架
 - [Plotly](https://plotly.com/) - 交互式可视化
 - [Optuna](https://optuna.org/) - 超参数优化
