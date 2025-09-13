@@ -42,3 +42,14 @@ jobs:
 
     - name: 运行真实预测测试
       run: python test_real_prediction.py
+    
+    
+    - name: 更新彩票历史数据
+      run: python update_data.py
+
+    - name: 提交并推送更新后的数据
+      run: |
+        git config --global user.name  "github-actions[bot]"
+        git config --global user.email "github-actions[bot]@users.noreply.github.com"
+        git add data/*.csv               # 按你实际路径写
+        git diff --cached --quiet || (git commit -m "bot: auto-update lottery data" && git push)
