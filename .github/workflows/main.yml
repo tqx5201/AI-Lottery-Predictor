@@ -1,0 +1,44 @@
+name: Run Core Tests
+
+on:
+  push:
+    branches: [ main, dev ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: 检出代码
+      uses: actions/checkout@v3
+
+    - name: 设置 Python 环境
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+
+    - name: 安装依赖
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: 安装可选依赖（增强功能）
+      run: |
+        pip install qiskit qiskit-aer cirq
+        pip install plotly matplotlib seaborn
+        pip install nltk spacy transformers
+        pip install optuna scikit-optimize
+        pip install websockets aiohttp
+
+    - name: 安装 SpaCy 模型
+      run: |
+        python -m spacy download en_core_web_sm
+        python -m spacy download zh_core_web_sm
+
+    - name: 运行核心功能测试
+      run: python test_core_functionality.py
+
+    - name: 运行真实预测测试
+      run: python test_real_prediction.py
