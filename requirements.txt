@@ -1,5 +1,3 @@
-# AI彩票预测系统 V4.0 依赖清单
-
 # 基础科学计算
 numpy>=1.21.0
 pandas>=2.0.0
@@ -20,11 +18,9 @@ seaborn>=0.11.0
 plotly>=5.0.0
 
 # 数据库和存储
-sqlite3  # Python内置
 sqlalchemy>=1.4.0
 
 # 异步和网络
-asyncio  # Python内置
 aiohttp>=3.8.0
 websockets>=10.0
 
@@ -35,7 +31,6 @@ pytz>=2021.3
 
 # 界面开发 (可选)
 PyQt5>=5.15.0
-tkinter  # Python内置
 
 # 优化库 (可选 - 智能调优)
 optuna>=3.0.0
@@ -89,25 +84,3 @@ python-dotenv>=0.20.0
 
 # 多进程
 multiprocessing-logging>=0.3.0
-
-# 系统信息
-platform  # Python内置
-os  # Python内置
-sys  # Python内置
-time  # Python内置
-json  # Python内置
-logging  # Python内置
-threading  # Python内置
-queue  # Python内置
-collections  # Python内置
-dataclasses  # Python内置
-enum  # Python内置
-abc  # Python内置
-typing  # Python内置
-random  # Python内置
-math  # Python内置
-cmath  # Python内置
-itertools  # Python内置
-functools  # Python内置
-pathlib  # Python内置
-re  # Python内置
